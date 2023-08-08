@@ -1,0 +1,64 @@
+.container{
+    display: flex;
+    column-gap: 300px;
+    justify-content: center;
+    
+}
+.roll{
+    padding: 10px 30px;
+    background-color: green;
+    color: antiquewhite;
+    border: none;
+    border-radius: 10px;
+    
+}
+
+#winner{
+    font-size: 20px;
+    text-align: center;
+}
+
+#player1score{
+
+    font-size:30px;
+    margin:30px 0px;
+    display:flex;
+    justify-content:center;
+    
+}
+
+#player2score{
+
+    font-size:30px;
+    margin:30px 0px;
+    display:flex;
+    justify-content:center;
+    
+}
+
+#rbutton{
+    
+    display: flex;
+    justify-content: center;
+
+}
+
+#reset{
+
+    padding: 10px 30px;
+    background-color: rgb(61, 67, 94);
+    color: antiquewhite;
+    border: none;
+    border-radius: 10px;
+    margin-top: 80px;
+       
+}
+
+
+
+
+#images{
+    height: 120px;
+    width: 140px;
+    margin-top: 40px;
+}

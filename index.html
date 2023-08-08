@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+<body>
+    <h3 style="text-align: center; color:green;">Let's Play Dice</h3>
+    <div >
+        <h2 id="winner">click roll button to start</h2>            
+    </div>
+    <div class="container" >
+
+        <div>
+            <h2>Player-1</h2>
+            <h2 id="player1score">0</h2>
+            <button id="one" class="roll" onclick="play(this.id)">Roll</button>
+        </div>
+        
+
+        <div>
+            <img id="images" src="./six.jpeg">
+        </div>
+
+        
+
+        <div>
+            <h2>Player-2</h2>
+            <h2 id="player2score">0</h2>
+            <button id= "two" class="roll"  onclick="play(this.id)">Roll</button>
+        </div>
+
+    </div>
+    <div id="rbutton">
+        <button id= "reset" onclick="location.reload()">Reset</button>
+    </div>
+</body>
+<script>
+    let image=["./one.jpeg","./two.jpeg","./three.jpeg","./four.jpeg","./five.jpeg","./six.jpeg"];
+    let img=[1,2,3,4,5,6];
+    let player1 = 0;
+    let player2 = 0;
+
+    let button1 = document.getElementById("one");
+    let button2 = document.getElementById("two");
+
+    let victory = document.getElementById("winner");
+
+
+    function play(clicked)
+    {  
+
+            if(clicked=="one")
+            {
+                
+                button1.disabled=true;            
+                button2.disabled=false;              
+
+            
+                if(button1.disabled==true)
+                {
+                    button1.style.background="grey";
+                }
+
+                if(button2.disabled==false)
+                {
+                    button2.style.background="green";
+                }
+
+                let a = Math.floor(Math.random()*img.length);
+                player1=player1+img[a];
+
+                         
+                let player1score = document.getElementById("player1score");              
+                player1score.innerHTML=player1;
+
+                document.getElementById("images").src=image[a];                
+
+
+                victory.innerHTML="player2 turn";
+
+                               
+                winning();
+
+               
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+            if(clicked=="two")
+            {
+                
+                button2.disabled=true;            
+                button1.disabled=false; 
+
+
+                if(button2.disabled==true)
+                {
+                    button2.style.background="grey";
+                }
+
+                if(button1.disabled==false)
+                {
+                    button1.style.background="green";
+                }
+              
+                let a = Math.floor(Math.random()*img.length);
+                player2=player2+img[a];
+
+                
+                let player2score = document.getElementById("player2score");              
+                player2score.innerHTML=player2;  
+
+                document.getElementById("images").src=image[a]; 
+
+                victory.innerHTML="player1 turn";
+
+                winning();
+
+                
+    
+
+            }
+     }
+
+
+    function winning(){
+
+                    if(player1>=30 || player2>=30)
+                {
+                    button1.disabled=true;            
+                    button2.disabled=true;
+                    button1.style.background="grey";
+                    button2.style.background="grey";
+
+                    
+
+                    if(player1>=30)
+                    {
+                        victory.innerHTML="player1 is Winner!!!";
+                    }
+                    if(player2>=30)
+                    {
+                        victory.innerHTML="player2 is Winner!!!";
+                    }
+
+                    let para = document.createElement("p");
+                    para.innerHTML="Click Reset button to restart the Game";
+                    para.style.fontSize="20px";
+                    para.style.color="green";
+                    para.style.textAlign="center";
+                    document.body.append(para);
+
+
+                }
+    }
+
+
+
+    </script>
+</html>
+
+
+    
+
+          
